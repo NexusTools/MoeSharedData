@@ -18,5 +18,6 @@
         <file>libraries/simplex.js</file>
         <file>examples/simplex-2d/info.xml</file>
         <file>examples/simplex-2d/init.js</file>
+        <file>loaders/native.js</file>
     </qresource>
 </RCC>
