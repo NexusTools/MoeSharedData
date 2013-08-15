@@ -9,17 +9,21 @@ var inst = new Simplex();
 var rot = 0;
 
 var res = 512;
-var octives = 32;
+var octives = 16;
 
 var text = new GraphicsText("", Font("Arial", 12), surface);
-text.text = "Scale " + scale;
+text.text = "Scale: " + scale + "\nOctives: " + octives;
 
 surface.renderTime.connect(function(lag) {
-    if(lag > 1)
-        scale*=1.2;
-    else if(lag < 0.7)
-        scale*=0.8;
-    text.text = "Scale " + Math.round(scale*10)/10;
+    if(lag > 1.05)
+        scale*=1.05;
+    else if(lag < 0.95)
+        scale*=0.95;
+    if(scale > 14)
+        octives *= 0.95;
+    if(scale < 8)
+        octives *= 1.05;
+    text.text = "Scale: " + Math.round(scale*10)/10 + "\nOctives: " + Math.round(octives*10)/10;
 });
 
 surface.paint.connect(function(p){
@@ -50,7 +54,7 @@ surface.paint.connect(function(p){
 
 engine.tick.connect(function() {
     surface.repaint();
-    rot++;
+    rot+=2;
 });
 
 surface.connected.connect(function(){
