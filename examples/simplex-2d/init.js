@@ -8,16 +8,14 @@ var inst = new Simplex();
 var rot = 0;
 
 surface.paint.connect(function(p){
-    p.pen = Rgba(0, 0, 255, 80);
-
-    for(var xoc = 0; xoc < surface.width/3; xoc++){
-        for(var yoc = 0; yoc < surface.height/3; yoc++){
+    for(var xoc = 0; xoc < surface.width/2; xoc+=8){
+        for(var yoc = 0; yoc < surface.height/2; yoc+=8){
 
             var nois = inst.noise2D((xoc+1024+rot)/256.0, (yoc+2048)/256.0);
             nois *= 126;
             nois += 128;
 
-            p.drawPixel(Point(xoc+nois,yoc+nois));
+            p.fillRect(Rect(xoc+nois-4,yoc+nois-4, 8, 8), Rgba(0, 0, 255, 80));
         }
     }
 });
