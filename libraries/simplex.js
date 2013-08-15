@@ -7,6 +7,11 @@
   @dependancies ["prototype"]
 */
 
+try {
+    engine.loadNativeModule("Simplex");
+    return;
+} catch(e) {}
+
 var Simplex = Class.create({
 
     /*
