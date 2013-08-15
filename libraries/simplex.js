@@ -8,6 +8,7 @@
 */
 
 try {
+    throw "Bad native implementation";
     engine.loadNativeModule("Simplex");
     engine.debug(global.Simplex);
 } catch(e) {
