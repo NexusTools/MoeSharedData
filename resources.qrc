@@ -22,5 +22,7 @@
         <file>shaders/colour.frag</file>
         <file>shaders/matrix.vert</file>
         <file>shaders/texture.frag</file>
+        <file>examples/opengl/info.xml</file>
+        <file>examples/opengl/init.js</file>
     </qresource>
 </RCC>

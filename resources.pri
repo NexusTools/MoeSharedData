@@ -15,6 +15,8 @@ OTHER_FILES += $${PWD}/libraries/shared.js \
 	$${PWD}/libraries/simplex.js \
 	$${PWD}/examples/simplex-2d/init.js \
 	$${PWD}/examples/simplex-2d/info.xml \
+	$${PWD}/examples/opengl/init.js \
+	$${PWD}/examples/opengl/info.xml \
     ../data/shaders/matrix.vert \
     ../data/shaders/texture.frag \
     ../data/shaders/colour.frag

@@ -1,0 +1,7 @@
+<MoeContent>
+	<ContentInfo>
+		<Name>OpenGL Cube</Name>
+		<ShortDescription>Rotating Cube.</ShortDescription>
+		<LongDescription>Renders a rotating cube using OpenGL.</LongDescription>
+	</ContentInfo>
+</MoeContent>
