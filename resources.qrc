@@ -19,5 +19,8 @@
         <file>examples/simplex-2d/info.xml</file>
         <file>examples/simplex-2d/init.js</file>
         <file>loaders/native.js</file>
+        <file>shaders/colour.frag</file>
+        <file>shaders/matrix.vert</file>
+        <file>shaders/texture.frag</file>
     </qresource>
 </RCC>
