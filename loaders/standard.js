@@ -4,6 +4,7 @@
     var unresolvedDeps = [];
     var librariesToLoad = [];
     var loadedLibraries = [];
+    var contentName;
 
     var addLibraryDep = function(dep) {
         dep = Url(dep, "qrc:/libraries/").toString();
@@ -113,8 +114,11 @@
 
     var loadContent = function(contentDesc) {
         engine.debug(contentDesc);
-        engine.debug("Processing content package `"+contentDesc.Name['#text']+"`");
+        contentName = contentDesc.Name['#text'];
+        engine.debug("Processing content package `"+contentName+"`");
+        engine.setApplicationName(contentName);
         var deps = [];
+
         if("Dependancies" in contentDesc) {
             contentDesc.Dependancies.Dependancy.forEach(function(dep){
                 deps.push(dep['#text']);
