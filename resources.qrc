@@ -19,10 +19,11 @@
         <file>examples/simplex-2d/info.xml</file>
         <file>examples/simplex-2d/init.js</file>
         <file>loaders/native.js</file>
-        <file>shaders/colour.frag</file>
-        <file>shaders/matrix.vert</file>
-        <file>shaders/texture.frag</file>
         <file>examples/opengl/info.xml</file>
         <file>examples/opengl/init.js</file>
+        <file>shaders/matrix.vert</file>
+        <file>shaders/colour.frag</file>
+        <file>shaders/matrix-texture.vert</file>
+        <file>shaders/texture.frag</file>
     </qresource>
 </RCC>

@@ -120,6 +120,7 @@
         var deps = [];
 
         if("Dependancies" in contentDesc) {
+            engine.log(contentDesc);
             contentDesc.Dependancies.Dependancy.forEach(function(dep){
                 deps.push(dep['#text']);
             });

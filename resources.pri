@@ -17,9 +17,10 @@ OTHER_FILES += $${PWD}/libraries/shared.js \
 	$${PWD}/examples/simplex-2d/info.xml \
 	$${PWD}/examples/opengl/init.js \
 	$${PWD}/examples/opengl/info.xml \
+    ../data/shaders/colour.frag \
     ../data/shaders/matrix.vert \
     ../data/shaders/texture.frag \
-    ../data/shaders/colour.frag
+    ../data/shaders/matrix-texture.vert
 
 RESOURCES += \
 		$${PWD}/resources.qrc
