@@ -30,13 +30,17 @@ var Class = (function() {
 
   function subclass() {};
   function create() {
-    var parent = null, properties = $A(arguments);
+    var parent = null, name = null, properties = $A(arguments);
+      if (Object.isString(properties[0]))
+        name = properties.shift();
     if (Object.isFunction(properties[0]))
       parent = properties.shift();
 
-    function klass() {
-      this.initialize.apply(this, arguments);
-    }
+    var klass;
+    if(name)
+      klass = eval("(function " + name + "() {this.initialize.apply(this, arguments);})");
+    else
+      klass = function(){this.initialize.apply(this, arguments);};
 
     Object.extend(klass, Class.Methods);
     klass.superclass = parent;
@@ -458,7 +462,7 @@ RegExp.prototype.match = RegExp.prototype.test;
 RegExp.escape = function(str) {
   return String(str).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
 };
-var PeriodicalExecuter = Class.create({
+var PeriodicalExecuter = Class.create("PeriodicalExecuter", {
   initialize: function(callback, frequency) {
     this.callback = callback;
     this.frequency = frequency;
@@ -756,7 +760,7 @@ Object.extend(String.prototype, (function() {
   };
 })());
 
-var Template = Class.create({
+var Template = Class.create("Template", {
   initialize: function(template, pattern) {
     this.template = template.toString();
     this.pattern = pattern || Template.Pattern;
@@ -1354,7 +1358,7 @@ function $H(object) {
   return new Hash(object);
 };
 
-var Hash = Class.create(Enumerable, (function() {
+var Hash = Class.create("Hash", Enumerable, (function() {
   function initialize(object) {
     this._object = Object.isHash(object) ? object.toObject() : Object.clone(object);
   }
@@ -1527,7 +1531,7 @@ function $R(start, end, exclusive) {
   return new ObjectRange(start, end, exclusive);
 }
 
-var ObjectRange = Class.create(Enumerable, (function() {
+var ObjectRange = Class.create("ObjectRange", Enumerable, (function() {
   function initialize(start, end, exclusive) {
     this.start = start;
     this.end = end;
