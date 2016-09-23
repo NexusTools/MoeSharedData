@@ -153,15 +153,15 @@ leftButtons.setPos(-leftButtons.width, 5);
 
 function changeContent(url) {
     if(subMenuButtons) {
-        subMenuButtons.animate("posX", 0);
+        subMenuButtons.animate("x", 0);
         subMenuButtons.animate("opacity", 0);
     }
 
     moeLogo.animate("opacity", 0);
     leftButtons.animate("opacity", 0);
-    leftButtons.animate("posX", -leftButtons.width);
+    leftButtons.animate("x", -leftButtons.width);
     rightButtons.animate("opacity", 0);
-    rightButtons.animate("posX", surface.width);
+    rightButtons.animate("x", surface.width);
     surface.setTitle("Changing content...");
     surface.animate("background", defaultBackgroundColor, function() {
         engine.startContent(url);
@@ -176,7 +176,7 @@ function loadChildSelectionSubmenu(path) {
     loading.background = Rgba(0, 0, 0, 160);
     var selPos = leftButtons.getSelectedButtonPos();
     loading.setPos(0, selPos.y + 4);
-    loading.animate("posX", 10, 7);
+    loading.animate("x", 10, 7);
     var exampleEntries = ResourceRequest(path);
     function createSubmenu(generator, callback) {
         subMenuButtons = new ButtonGroup({"opacity": 0});
@@ -185,7 +185,7 @@ function loadChildSelectionSubmenu(path) {
         if(loading)
             y += loading.height + 5;
         subMenuButtons.setPos(0, y);
-        subMenuButtons.animate("posX", 14, 7, 120);
+        subMenuButtons.animate("x", 14, 7, 120);
         subMenuButtons.animate("opacity", 1, 7, 120);
         if(loading)
             subMenuButtons.buttonChanged.connect(function(text, index){
@@ -258,7 +258,7 @@ function loadChildSelectionSubmenu(path) {
 var subMenuButtons = false;
 function fadeDestroySubmenu() {
     subMenuButtons.setDisabled(true);
-    subMenuButtons.animate("posX", 0, 4, 80, subMenuButtons.deleteLater);
+    subMenuButtons.animate("x", 0, 4, 80, subMenuButtons.deleteLater);
     subMenuButtons.animate("opacity", 0, 4, 80, subMenuButtons.deleteLater);
     subMenuButtons = false;
 }
@@ -267,7 +267,7 @@ function destroySubmenu() {
     fadeDestroySubmenu();
 
     leftButtons.setDisabled(false);
-    leftButtons.animate("posX", 5, 4, 50);
+    leftButtons.animate("x", 5, 4, 50);
     leftButtons.animate("opacity", 1, 4, 50);
 }
 
@@ -304,7 +304,7 @@ leftButtons.buttonChanged.connect(function(btn){
     }
 
     leftButtons.setDisabled(true);
-    leftButtons.animate("posX", -8, 4, 50);
+    leftButtons.animate("x", -8, 4, 50);
     leftButtons.animate("opacity", 0.4, 4, 50);
 });
 
@@ -343,12 +343,12 @@ function start(size) {
     moeLogoDownload.completed.connect(moeLogoDownload.deleteLater);
 
     surface.resized.disconnect(start);
-    leftButtons.animate("posX", 5, 5, 80);
+    leftButtons.animate("x", 5, 5, 80);
     leftButtons.animate("opacity", 1, 8, 80);
     defaultBackgroundColor = surface.background;
     surface.animate("background", "black", 30);
     rightButtons.setPos(size.width - rightButtons.width + 95, 5);
-    rightButtons.animate("posX", size.width - rightButtons.width - 5, 5, 80);
+    rightButtons.animate("x", size.width - rightButtons.width - 5, 5, 80);
     rightButtons.animate("opacity", 1, 8, 80);
     moeLogo.setSize(size);
 
